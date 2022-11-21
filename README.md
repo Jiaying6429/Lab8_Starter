@@ -1,4 +1,5 @@
 # Lab 8 - Starter
+Jiaying
 
 1. I would choose to place within a Github action that runs whenever code is pushed cuz it can reject not functioning push
 2. No 
