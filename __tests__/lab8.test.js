@@ -68,7 +68,7 @@ describe('Basic user flow for Website', () => {
     const shadowRoot = await prodItem.getProperty("shadowRoot");
     const button = await shadowRoot.$("button");
     await button.click();
-    const innerText = await button.getProperty("innerText");
+    let innerText = await button.getProperty("innerText");
     innerText = await innerText.jsonValue();
     expect(innerText).toBe("Remove from Cart");
   }, 2500);
@@ -90,7 +90,7 @@ describe('Basic user flow for Website', () => {
       await button.click();
     }
 
-    const count = await page.$("#cart-count");
+    let count = await page.$("#cart-count");
     count = await count.getProperty("innerText");
     count = await count.jsonValue();
     expect(count).toBe("20");
@@ -111,7 +111,7 @@ describe('Basic user flow for Website', () => {
       const prodItem = prodItems[i];
       const shadowRoot = await prodItem.getProperty("shadowRoot");
       const button = await shadowRoot.$("button");
-      const innerText = await button.getProperty("innerText");
+      let innerText = await button.getProperty("innerText");
       innerText = await innerText.jsonValue();
       if (innerText !== "Remove from Cart") {
         allRemoved = false;
@@ -119,7 +119,7 @@ describe('Basic user flow for Website', () => {
     }
     expect(allRemoved).toBe(true);
     const count = await page.$("#cart-count");
-    const innerText = await count.getProperty("innerText");
+    let innerText = await count.getProperty("innerText");
     innerText = await innerText.jsonValue();
 
     expect(innerText).toBe("20");
@@ -153,7 +153,7 @@ describe('Basic user flow for Website', () => {
     }
 
     const count = await page.$("#cart-count");
-    const innerText = await count.getProperty("innerText");
+    let innerText = await count.getProperty("innerText");
     innerText = await innerText.jsonValue();
 
     expect(innerText).toBe("0");
@@ -176,7 +176,7 @@ describe('Basic user flow for Website', () => {
       const shadowRoot = await prodItem.getProperty("shadowRoot");
       const button = await shadowRoot.$("button");
 
-      const innerText = await button.getProperty("innerText");
+      let innerText = await button.getProperty("innerText");
       innerText = await innerText.jsonValue();
       if(innerText !== "Add to Cart") {
         allAdded = false;
@@ -184,7 +184,7 @@ describe('Basic user flow for Website', () => {
     }
 
     const count = await page.$("#cart-count");
-    const innerText = await count.getProperty("innerText");
+    let innerText = await count.getProperty("innerText");
     innerText = await innerText.jsonValue();
 
     expect(allAdded).toBe(true);
